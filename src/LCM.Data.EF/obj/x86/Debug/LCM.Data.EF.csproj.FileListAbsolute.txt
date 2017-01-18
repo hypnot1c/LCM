@@ -1,0 +1,17 @@
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\bin\x86\Debug\LCM.Data.EF.dll
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\bin\x86\Debug\LCM.Data.EF.pdb
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\bin\x86\Debug\LCM.Data.EF.pri
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\LCM.Data.EF.csprojResolveAssemblyReference.cache
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\LCM.Data.EF.dll
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\LCM.Data.EF.pdb
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\priconfig.xml
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\priconfig.xml.intermediate
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\layout.resfiles
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\layout.resfiles.intermediate
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\resources.resfiles
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\resources.resfiles.intermediate
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\pri.resfiles
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\pri.resfiles.intermediate
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\qualifiers.txt
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\qualifiers.txt.intermediate
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt

@@ -1,5 +1,5 @@
 ﻿using LCM.UWP_App.Helpers;
-using LCM.UWP_App.Pages;
+using LCM.UWP_App;
 using Prism.Unity.Windows;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;

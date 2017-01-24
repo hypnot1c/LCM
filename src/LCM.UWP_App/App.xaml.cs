@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using LCM.UWP_App.Views;
 
 namespace LCM.UWP_App
 {
@@ -25,7 +26,7 @@ namespace LCM.UWP_App
 
         protected override UIElement CreateShell(Frame rootFrame)
         {
-            var shell = Container.TryResolve<ShellPage>();
+            var shell = Container.TryResolve<MainPage>();
             shell.SetContentFrame(rootFrame);
             return shell;
         }

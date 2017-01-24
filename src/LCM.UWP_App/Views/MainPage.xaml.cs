@@ -26,5 +26,15 @@ namespace LCM.UWP_App.Views
     {
       this.InitializeComponent();
     }
+
+    public void SetContentFrame(Frame frame)
+    {
+      mainMenu.Content = frame;
+    }
+
+    public void SetMenuPaneContent(UIElement content)
+    {
+      mainMenu.Pane = content;
+    }
   }
 }

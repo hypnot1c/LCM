@@ -8,11 +8,31 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <SplitView Grid.Row="0" x:Name="rootSplitView">
-            <Frame x:Name="contentFrame" />
-            <!--<SplitView.Pane>
-                
-            </SplitView.Pane>-->
+        <SplitView 
+            Grid.Row="0" 
+            x:Name="mainMenu" 
+            Margin="0,0,0,0" 
+            HorizontalAlignment="Stretch" 
+            DisplayMode="CompactOverlay" 
+            CompactPaneLength="{Binding CollapsedPanelLength}" OpenPaneLength="150" 
+            PanePlacement="Left" 
+            IsPaneOpen="{Binding IsChecked, ElementName=menuToggle, Mode=TwoWay}">
+            
+            <SplitView.Pane>
+                <StackPanel Margin="0,48,0,0">
+                    <ListBox>
+                        <ListBoxItem>
+                            <TextBlock>Hello</TextBlock>
+                        </ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </SplitView.Pane>
+            
         </SplitView>
+        <ToggleButton 
+         x:Name="menuToggle"
+         IsChecked="{Binding IsPaneOpen, ElementName=mainMenu, Mode=TwoWay}"
+         Content="&#xE700;"
+        />
     </Grid>
 </Page>

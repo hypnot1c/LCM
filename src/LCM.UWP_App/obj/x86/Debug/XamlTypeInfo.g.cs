@@ -132,27 +132,25 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[8];
             _typeNameTable[0] = "Prism.Unity.Windows.PrismUnityApplication";
             _typeNameTable[1] = "Prism.Windows.PrismApplication";
             _typeNameTable[2] = "Windows.UI.Xaml.Application";
             _typeNameTable[3] = "Microsoft.Practices.Unity.IUnityContainer";
             _typeNameTable[4] = "Boolean";
-            _typeNameTable[5] = "LCM.UWP_App.MainPage";
+            _typeNameTable[5] = "LCM.UWP_App.Views.MainPage";
             _typeNameTable[6] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[7] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[8] = "LCM.UWP_App.Pages.ShellPage";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[8];
             _typeTable[0] = typeof(global::Prism.Unity.Windows.PrismUnityApplication);
             _typeTable[1] = typeof(global::Prism.Windows.PrismApplication);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[3] = typeof(global::Microsoft.Practices.Unity.IUnityContainer);
             _typeTable[4] = typeof(global::System.Boolean);
-            _typeTable[5] = typeof(global::LCM.UWP_App.MainPage);
+            _typeTable[5] = typeof(global::LCM.UWP_App.Views.MainPage);
             _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[8] = typeof(global::LCM.UWP_App.Pages.ShellPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -187,8 +185,7 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_5_MainPage() { return new global::LCM.UWP_App.MainPage(); }
-        private object Activate_8_ShellPage() { return new global::LCM.UWP_App.Pages.ShellPage(); }
+        private object Activate_5_MainPage() { return new global::LCM.UWP_App.Views.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -226,7 +223,7 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
                 xamlType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  LCM.UWP_App.MainPage
+            case 5:   //  LCM.UWP_App.Views.MainPage
                 userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_5_MainPage;
                 userType.SetIsLocalType();
@@ -239,13 +236,6 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
 
             case 7:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 8:   //  LCM.UWP_App.Pages.ShellPage
-                userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_ShellPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
                 break;
             }
             return xamlType;

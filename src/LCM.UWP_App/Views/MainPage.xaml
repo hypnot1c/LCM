@@ -27,10 +27,10 @@
                     </ListBox>
                 </StackPanel>
             </SplitView.Pane>
-            
         </SplitView>
         <ToggleButton 
          x:Name="menuToggle"
+         VerticalAlignment="Top"
          IsChecked="{Binding IsPaneOpen, ElementName=mainMenu, Mode=TwoWay}"
          Content="&#xE700;"
         />

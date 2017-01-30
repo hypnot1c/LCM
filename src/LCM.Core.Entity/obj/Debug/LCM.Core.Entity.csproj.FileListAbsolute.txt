@@ -1,4 +1,0 @@
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity\bin\Debug\LCM.Core.Entity.dll
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity\bin\Debug\LCM.Core.Entity.pdb
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity\obj\Debug\LCM.Core.Entity.dll
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity\obj\Debug\LCM.Core.Entity.pdb

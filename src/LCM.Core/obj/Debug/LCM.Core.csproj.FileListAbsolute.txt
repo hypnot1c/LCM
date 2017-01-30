@@ -1,5 +1,0 @@
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core\bin\Debug\LCM.Core.dll
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core\bin\Debug\LCM.Core.pdb
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core\obj\Debug\LCM.Core.csprojResolveAssemblyReference.cache
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core\obj\Debug\LCM.Core.dll
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core\obj\Debug\LCM.Core.pdb

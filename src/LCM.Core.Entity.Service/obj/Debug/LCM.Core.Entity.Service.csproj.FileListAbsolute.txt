@@ -1,5 +1,0 @@
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity.Service\bin\Debug\LCM.Core.Entity.Service.dll
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity.Service\bin\Debug\LCM.Core.Entity.Service.pdb
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity.Service\obj\Debug\LCM.Core.Entity.Service.csprojResolveAssemblyReference.cache
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity.Service\obj\Debug\LCM.Core.Entity.Service.dll
-C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity.Service\obj\Debug\LCM.Core.Entity.Service.pdb

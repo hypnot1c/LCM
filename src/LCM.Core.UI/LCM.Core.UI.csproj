@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FF551802-216A-4E66-B852-5151F8C8FF4C}</ProjectGuid>
+    <ProjectGuid>{900C1053-CEF8-48BF-BC46-5CA629B7D699}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LCM.Core.UI</RootNamespace>
@@ -38,6 +38,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="LCM.Core.Entity">
+      <HintPath>..\LCM.Core.Entity\bin\Debug\netstandard1.6\LCM.Core.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="LCM.Core.Entity.Service">
+      <HintPath>..\LCM.Core.Entity.Service\bin\Debug\netstandard1.6\LCM.Core.Entity.Service.dll</HintPath>
+    </Reference>
     <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.Core.6.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.dll</HintPath>
       <Private>True</Private>

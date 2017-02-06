@@ -385,6 +385,18 @@
     <AppxPackagedFile Include="C:\Users\Ahmed\.nuget\packages\Unity\4.0.1\lib\win8\Microsoft.Practices.Unity.dll">
       <PackagePath>Microsoft.Practices.Unity.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity\bin\Debug\netstandard1.6\LCM.Core.Entity.dll">
+      <PackagePath>LCM.Core.Entity.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.Entity.Service\bin\Debug\netstandard1.6\LCM.Core.Entity.Service.dll">
+      <PackagePath>LCM.Core.Entity.Service.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.UI\bin\Debug\LCM.Core.UI.dll">
+      <PackagePath>LCM.Core.UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Data.EF\bin\Debug\netstandard1.6\LCM.Data.EF.dll">
+      <PackagePath>LCM.Data.EF.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>

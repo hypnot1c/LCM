@@ -225,3 +225,12 @@ C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\Views\Main
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\Views\MainPage.g.cs
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\Views\MainPage.xaml
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\Views\MainPage.xbf
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.Entity.dll
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.Entity.Service.dll
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Data.EF.dll
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.Entity.pdb
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.Entity.Service.pdb
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Data.EF.pdb
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\LCM.UWP_App.csprojResolveAssemblyReference.cache
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.UI.dll
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.UI.pdb

@@ -1,1 +1,2 @@
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.Core.UI\LCM.Core.UI.csproj;neutral
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\LCM.UWP_App.csproj;x86

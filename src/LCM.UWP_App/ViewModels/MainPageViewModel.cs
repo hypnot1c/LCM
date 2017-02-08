@@ -7,8 +7,12 @@ using Prism.Windows.Mvvm;
 
 namespace LCM.UWP_App.ViewModels
 {
-  public class MainPage: ViewModelBase
+  public class MainPageViewModel: ViewModelBase
   {
-
+    public MainPageViewModel()
+    {
+      DisplayText = "This is the main page!";
+    }
+    public string DisplayText { get; private set; }
   }
 }

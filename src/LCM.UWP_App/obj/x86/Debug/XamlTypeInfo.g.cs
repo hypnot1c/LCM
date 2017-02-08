@@ -132,25 +132,39 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[8];
+            _typeNameTable = new string[15];
             _typeNameTable[0] = "Prism.Unity.Windows.PrismUnityApplication";
             _typeNameTable[1] = "Prism.Windows.PrismApplication";
             _typeNameTable[2] = "Windows.UI.Xaml.Application";
             _typeNameTable[3] = "Microsoft.Practices.Unity.IUnityContainer";
             _typeNameTable[4] = "Boolean";
-            _typeNameTable[5] = "LCM.UWP_App.Views.MainPage";
+            _typeNameTable[5] = "LCM.UWP_App.AppShell";
             _typeNameTable[6] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[7] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[8] = "Prism.Windows.Mvvm.ViewModelLocator";
+            _typeNameTable[9] = "Object";
+            _typeNameTable[10] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[11] = "LCM.UWP_App.Views.MainPage";
+            _typeNameTable[12] = "LCM.UWP_App.ViewModels.MainPageViewModel";
+            _typeNameTable[13] = "Prism.Windows.Mvvm.ViewModelBase";
+            _typeNameTable[14] = "Prism.Mvvm.BindableBase";
 
-            _typeTable = new global::System.Type[8];
+            _typeTable = new global::System.Type[15];
             _typeTable[0] = typeof(global::Prism.Unity.Windows.PrismUnityApplication);
             _typeTable[1] = typeof(global::Prism.Windows.PrismApplication);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[3] = typeof(global::Microsoft.Practices.Unity.IUnityContainer);
             _typeTable[4] = typeof(global::System.Boolean);
-            _typeTable[5] = typeof(global::LCM.UWP_App.Views.MainPage);
+            _typeTable[5] = typeof(global::LCM.UWP_App.AppShell);
             _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[8] = typeof(global::Prism.Windows.Mvvm.ViewModelLocator);
+            _typeTable[9] = typeof(global::System.Object);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[11] = typeof(global::LCM.UWP_App.Views.MainPage);
+            _typeTable[12] = typeof(global::LCM.UWP_App.ViewModels.MainPageViewModel);
+            _typeTable[13] = typeof(global::Prism.Windows.Mvvm.ViewModelBase);
+            _typeTable[14] = typeof(global::Prism.Mvvm.BindableBase);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -185,7 +199,11 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_5_MainPage() { return new global::LCM.UWP_App.Views.MainPage(); }
+        private object Activate_5_AppShell() { return new global::LCM.UWP_App.AppShell(); }
+        private object Activate_8_ViewModelLocator() { return new global::Prism.Windows.Mvvm.ViewModelLocator(); }
+        private object Activate_11_MainPage() { return new global::LCM.UWP_App.Views.MainPage(); }
+        private object Activate_12_MainPageViewModel() { return new global::LCM.UWP_App.ViewModels.MainPageViewModel(); }
+        private object Activate_13_ViewModelBase() { return new global::Prism.Windows.Mvvm.ViewModelBase(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -223,9 +241,9 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
                 xamlType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  LCM.UWP_App.Views.MainPage
+            case 5:   //  LCM.UWP_App.AppShell
                 userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_MainPage;
+                userType.Activator = Activate_5_AppShell;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -236,6 +254,47 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
 
             case 7:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Prism.Windows.Mvvm.ViewModelLocator
+                userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_ViewModelLocator;
+                userType.AddMemberName("AutoWireViewModel");
+                xamlType = userType;
+                break;
+
+            case 9:   //  Object
+                xamlType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  LCM.UWP_App.Views.MainPage
+                userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_MainPage;
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  LCM.UWP_App.ViewModels.MainPageViewModel
+                userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Prism.Windows.Mvvm.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Prism.Windows.Mvvm.ViewModelBase
+                userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Prism.Mvvm.BindableBase"));
+                userType.Activator = Activate_13_ViewModelBase;
+                xamlType = userType;
+                break;
+
+            case 14:   //  Prism.Mvvm.BindableBase
+                userType = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
                 break;
             }
             return xamlType;
@@ -251,6 +310,19 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
         {
             var that = (global::Prism.Windows.PrismApplication)instance;
             return that.IsSuspending;
+        }
+        private object get_2_ViewModelLocator_AutoWireViewModel(object instance)
+        {
+            return global::Prism.Windows.Mvvm.ViewModelLocator.GetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_2_ViewModelLocator_AutoWireViewModel(object instance, object Value)
+        {
+            global::Prism.Windows.Mvvm.ViewModelLocator.SetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Boolean)Value);
+        }
+        private object get_3_MainPage_ViewModel(object instance)
+        {
+            var that = (global::LCM.UWP_App.Views.MainPage)instance;
+            return that.ViewModel;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -270,6 +342,20 @@ namespace LCM.UWP_App.LCM_UWP_App_XamlTypeInfo
                 userType = (global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Prism.Windows.PrismApplication");
                 xamlMember = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlMember(this, "IsSuspending", "Boolean");
                 xamlMember.Getter = get_1_PrismApplication_IsSuspending;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Prism.Windows.Mvvm.ViewModelLocator.AutoWireViewModel":
+                userType = (global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Prism.Windows.Mvvm.ViewModelLocator");
+                xamlMember = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlMember(this, "AutoWireViewModel", "Boolean");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_2_ViewModelLocator_AutoWireViewModel;
+                xamlMember.Setter = set_2_ViewModelLocator_AutoWireViewModel;
+                break;
+            case "LCM.UWP_App.Views.MainPage.ViewModel":
+                userType = (global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlUserType)GetXamlTypeByName("LCM.UWP_App.Views.MainPage");
+                xamlMember = new global::LCM.UWP_App.LCM_UWP_App_XamlTypeInfo.XamlMember(this, "ViewModel", "LCM.UWP_App.ViewModels.MainPageViewModel");
+                xamlMember.Getter = get_3_MainPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="LCM.UWP_App.AppShell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LCM.UWP_App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView 
+            Grid.Row="0" 
+            x:Name="mainMenu" 
+            Margin="0,0,0,0" 
+            HorizontalAlignment="Stretch" 
+            DisplayMode="CompactOverlay" 
+            CompactPaneLength="{Binding CollapsedPanelLength}" OpenPaneLength="150" 
+            PanePlacement="Left" 
+            IsPaneOpen="{Binding IsChecked, ElementName=menuToggle, Mode=TwoWay}">
+
+            <SplitView.Pane>
+                <StackPanel Margin="0,48,0,0">
+                    <ListBox>
+                        <ListBoxItem>
+                            <TextBlock>Hello</TextBlock>
+                        </ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </SplitView.Pane>
+        </SplitView>
+        <ToggleButton 
+         x:Name="menuToggle"
+         VerticalAlignment="Top"
+         IsChecked="{Binding IsPaneOpen, ElementName=mainMenu, Mode=TwoWay}"
+         Content="&#xE700;"
+        />
+    </Grid>
+</Page>

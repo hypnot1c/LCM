@@ -234,3 +234,8 @@ C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Data.E
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\LCM.UWP_App.csprojResolveAssemblyReference.cache
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.UI.dll
 C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\LCM.Core.UI.pdb
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\AppShell.g.i.cs
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\AppShell.g.cs
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\AppShell.xaml
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\obj\x86\Debug\AppShell.xbf
+C:\Users\Ahmed\Documents\GitHub\LCM\LCM\src\LCM.UWP_App\bin\x86\Debug\AppShell.xbf

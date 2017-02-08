@@ -26,7 +26,7 @@ namespace LCM.UWP_App
 
         protected override UIElement CreateShell(Frame rootFrame)
         {
-            var shell = Container.TryResolve<MainPage>();
+            var shell = Container.TryResolve<AppShell>();
             shell.SetContentFrame(rootFrame);
             return shell;
         }
@@ -40,7 +40,6 @@ namespace LCM.UWP_App
         // Documentation on navigation between pages is at http://go.microsoft.com/fwlink/?LinkID=288815&clcid=0x409
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
-
             NavigationService.Navigate(AppPagesHelper.MainPage, args.Arguments);
             return Task.FromResult(true);
         }

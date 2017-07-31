@@ -2,23 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyName>LCM.Data.EF</AssemblyName>
-    <PackageId>LCM.Data.EF</PackageId>
+    <AssemblyName>LCM.Core.Entity</AssemblyName>
+    <PackageId>LCM.Core.Entity</PackageId>
     <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\LCM.Core.Entity\LCM.Core.Entity.csproj" />
-    <ProjectReference Include="..\LCM.Data.Model\LCM.Data.Model.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="1.1.1" />
-  </ItemGroup>
 
 </Project>

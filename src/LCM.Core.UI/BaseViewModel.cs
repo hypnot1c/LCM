@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LCM.Core.UI
 {
-    public class BaseViewModel
+    public abstract class BaseViewModel
     {
+        public int Id { get; set; }
     }
 }

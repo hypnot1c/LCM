@@ -1,53 +1,73 @@
-﻿using Windows.UI.Xaml;
-using System.Threading.Tasks;
-using LCM.UWP.App.Services.SettingsServices;
-using Windows.ApplicationModel.Activation;
-using Template10.Controls;
-using Template10.Common;
+﻿using Caliburn.Micro;
+using LCM.UWP.App.ViewModels;
+using LCM.UWP.App.Views;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Windows.UI.Xaml.Data;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 namespace LCM.UWP.App
 {
-    /// Documentation on APIs used in this page:
-    /// https://github.com/Windows-XAML/Template10/wiki
-
-    [Bindable]
-    sealed partial class App : BootStrapper
+    /// <summary>
+    /// Provides application-specific behavior to supplement the default Application class.
+    /// </summary>
+    public sealed partial class App : CaliburnApplication
     {
+        private WinRTContainer container;
+
         public App()
         {
+            Initialize();
             InitializeComponent();
-            SplashFactory = (e) => new Views.Splash(e);
-
-            #region app settings
-
-            // some settings must be set in app.constructor
-            var settings = SettingsService.Instance;
-            RequestedTheme = settings.AppTheme;
-            CacheMaxDuration = settings.CacheMaxDuration;
-            ShowShellBackButton = settings.UseShellBackButton;
-
-            #endregion
         }
 
-        public override UIElement CreateRootElement(IActivatedEventArgs e)
+        protected override void Configure()
         {
-            var service = NavigationServiceFactory(BackButton.Attach, ExistingContent.Exclude);
-            return new ModalDialog
-            {
-                DisableBackButtonWhenModal = true,
-                Content = new Views.Shell(service),
-                ModalContent = new Views.Busy(),
-            };
+            container = new WinRTContainer();
+
+            container.RegisterWinRTServices();
+
+            container.PerRequest<HomeViewModel>();
         }
 
-        public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
+        protected override void PrepareViewFirst(Frame rootFrame)
         {
-            // TODO: add your long-running task here
-            await NavigationService.NavigateAsync(typeof(Views.MainPage));
+            container.RegisterNavigationService(rootFrame);
+        }
+
+        protected override void OnLaunched(LaunchActivatedEventArgs args)
+        {
+            if (args.PreviousExecutionState == ApplicationExecutionState.Running)
+                return;
+
+            DisplayRootView<HomeView>();
+        }
+
+        protected override object GetInstance(Type service, string key)
+        {
+            return container.GetInstance(service, key);
+        }
+
+        protected override IEnumerable<object> GetAllInstances(Type service)
+        {
+            return container.GetAllInstances(service);
+        }
+
+        protected override void BuildUp(object instance)
+        {
+            container.BuildUp(instance);
         }
     }
 }

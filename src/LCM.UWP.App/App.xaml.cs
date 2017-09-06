@@ -1,6 +1,9 @@
 ﻿using Caliburn.Micro;
+using LCM.Data.Master.EF;
 using LCM.UWP.App.ViewModels;
 using LCM.UWP.App.Views;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,6 +42,19 @@ namespace LCM.UWP.App
 
             container.RegisterWinRTServices();
 
+
+            container.Handler<MasterDbContext>(s => {
+                var optionsBuilder = new DbContextOptionsBuilder<MasterDbContext>();
+                var serviceProvider = new ServiceCollection()
+                    .AddEntityFrameworkInMemoryDatabase()
+                    .BuildServiceProvider();
+
+                optionsBuilder.UseInMemoryDatabase()
+                    .UseInternalServiceProvider(serviceProvider);
+
+                return new MasterDbContext(optionsBuilder.Options);
+            });
+
             container.PerRequest<HomeViewModel>();
         }
 
@@ -52,7 +68,7 @@ namespace LCM.UWP.App
             if (args.PreviousExecutionState == ApplicationExecutionState.Running)
                 return;
 
-            DisplayRootView<HomeView>();
+            DisplayRootViewFor<HomeViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

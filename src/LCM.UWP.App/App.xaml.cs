@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using LCM.Data.Master.EF;
 using LCM.UWP.App.ViewModels;
+using LCM.UWP.App.ViewModels.Cards;
 using LCM.UWP.App.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,67 +24,69 @@ using Windows.UI.Xaml.Navigation;
 
 namespace LCM.UWP.App
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
-    public sealed partial class App : CaliburnApplication
+  /// <summary>
+  /// Provides application-specific behavior to supplement the default Application class.
+  /// </summary>
+  public sealed partial class App : CaliburnApplication
+  {
+    private WinRTContainer container;
+
+    public App()
     {
-        private WinRTContainer container;
-
-        public App()
-        {
-            Initialize();
-            InitializeComponent();
-        }
-
-        protected override void Configure()
-        {
-            container = new WinRTContainer();
-
-            container.RegisterWinRTServices();
-
-
-            container.Handler<MasterDbContext>(s => {
-                var optionsBuilder = new DbContextOptionsBuilder<MasterDbContext>();
-                var serviceProvider = new ServiceCollection()
-                    .AddEntityFrameworkInMemoryDatabase()
-                    .BuildServiceProvider();
-
-                optionsBuilder.UseInMemoryDatabase()
-                    .UseInternalServiceProvider(serviceProvider);
-
-                return new MasterDbContext(optionsBuilder.Options);
-            });
-
-            container.PerRequest<HomeViewModel>();
-        }
-
-        protected override void PrepareViewFirst(Frame rootFrame)
-        {
-            container.RegisterNavigationService(rootFrame);
-        }
-
-        protected override void OnLaunched(LaunchActivatedEventArgs args)
-        {
-            if (args.PreviousExecutionState == ApplicationExecutionState.Running)
-                return;
-
-            DisplayRootViewFor<HomeViewModel>();
-        }
-
-        protected override object GetInstance(Type service, string key)
-        {
-            return container.GetInstance(service, key);
-        }
-
-        protected override IEnumerable<object> GetAllInstances(Type service)
-        {
-            return container.GetAllInstances(service);
-        }
-
-        protected override void BuildUp(object instance)
-        {
-            container.BuildUp(instance);
-        }
+      Initialize();
+      InitializeComponent();
     }
+
+    protected override void Configure()
+    {
+      container = new WinRTContainer();
+
+      container.RegisterWinRTServices();
+
+
+      container.Handler<MasterDbContext>(s =>
+      {
+        var optionsBuilder = new DbContextOptionsBuilder<MasterDbContext>();
+        var serviceProvider = new ServiceCollection()
+            .AddEntityFrameworkInMemoryDatabase()
+            .BuildServiceProvider();
+
+        optionsBuilder.UseInMemoryDatabase()
+            .UseInternalServiceProvider(serviceProvider);
+
+        return new MasterDbContext(optionsBuilder.Options);
+      });
+
+      container.PerRequest<ShellViewModel>();
+      container.PerRequest<CardListViewModel>();
+    }
+
+    protected override void PrepareViewFirst(Frame rootFrame)
+    {
+      container.RegisterNavigationService(rootFrame);
+    }
+
+    protected override void OnLaunched(LaunchActivatedEventArgs args)
+    {
+      if (args.PreviousExecutionState == ApplicationExecutionState.Running)
+        return;
+
+      DisplayRootViewFor<ShellViewModel>();
+    }
+
+    protected override object GetInstance(Type service, string key)
+    {
+      return container.GetInstance(service, key);
+    }
+
+    protected override IEnumerable<object> GetAllInstances(Type service)
+    {
+      return container.GetAllInstances(service);
+    }
+
+    protected override void BuildUp(object instance)
+    {
+      container.BuildUp(instance);
+    }
+  }
 }

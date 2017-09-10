@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\API.Core\API.Core.csproj" />
     <ProjectReference Include="..\LCM.Core.Service.Abstractions\LCM.Core.Service.Abstractions.csproj" />
+    <ProjectReference Include="..\LCM.Data.Master.EF\LCM.Data.Master.EF.csproj" />
   </ItemGroup>
 
 </Project>

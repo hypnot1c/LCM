@@ -16,11 +16,11 @@
         <StackPanel Margin="0,48,0,0">
           <ListBox Name="NavMenuItems" SelectedItem="{Binding SelectedNavMenuItem, Mode=TwoWay}">
             <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                  <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                  <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                  <Setter Property="Padding" Value="0,10,0,10" />
-                </Style>
+              <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                <Setter Property="Padding" Value="0,10,0,10" />
+              </Style>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
               <DataTemplate>
@@ -38,7 +38,7 @@
         </StackPanel>
       </SplitView.Pane>
       <SplitView.Content>
-        <Frame cm:Message.Attach="[Event Loaded] = [SetupNavigationService($source)]" DataContext="{x:Null}"/>
+        <Frame cm:Message.Attach="[Event Loaded] = [SetupNavigationService($source)]" DataContext="{x:Null}" Padding="0,48,0,0"/>
       </SplitView.Content>
     </SplitView>
     <ToggleButton 

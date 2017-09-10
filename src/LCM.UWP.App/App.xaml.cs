@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using LCM.Core.Service;
 using LCM.Data.Master.EF;
 using LCM.UWP.App.ViewModels;
 using LCM.UWP.App.ViewModels.Cards;
@@ -54,9 +55,12 @@ namespace LCM.UWP.App
         optionsBuilder.UseInMemoryDatabase()
             .UseInternalServiceProvider(serviceProvider);
 
-        return new MasterDbContext(optionsBuilder.Options);
+        var ctx = new MasterDbContext(optionsBuilder.Options);
+        ctx.FillTestData();
+        return ctx;
       });
 
+      container.Singleton<LCMUnitOfWork>();
       container.PerRequest<ShellViewModel>();
       container.PerRequest<CardListViewModel>();
     }

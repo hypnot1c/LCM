@@ -18,7 +18,7 @@ namespace LCM.Core.UI
 
         protected virtual void viewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         protected override void OnActivate()

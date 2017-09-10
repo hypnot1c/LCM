@@ -11,6 +11,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\LCM.Core.Entity\LCM.Core.Entity.csproj" />
+      <ProjectReference Include="..\LCM.Core.Service\LCM.Core.Service.csproj" />
     </ItemGroup>
 
 </Project>

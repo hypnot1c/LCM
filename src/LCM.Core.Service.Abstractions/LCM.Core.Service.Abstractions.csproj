@@ -4,4 +4,8 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LCM.Core.Entity\LCM.Core.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

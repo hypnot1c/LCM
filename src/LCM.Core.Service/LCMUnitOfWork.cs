@@ -6,6 +6,7 @@ using System.Text;
 using LCM.Core.Entity.Cards;
 using LCM.Data.Master.EF;
 using System.Linq;
+using LCM.Data.Master.Model;
 
 namespace LCM.Core.Service
 {
@@ -16,32 +17,48 @@ namespace LCM.Core.Service
       this.msrDb = msrDb;
     }
 
-    public MasterDbContext msrDb { get; }
+    protected MasterDbContext msrDb { get; }
 
     public void Commit()
     {
-      throw new NotImplementedException();
+      if(this.msrDb.Database.CurrentTransaction != null)
+      {
+        this.msrDb.Database.CommitTransaction();
+      }
     }
 
     public void Dispose()
     {
-      throw new NotImplementedException();
+      this.msrDb.Dispose();
     }
 
-    public IEnumerable<LoyaltyCard> GetAllCards()
-    {
-      var cards = this.msrDb.LoyaltyCards.Select(c => new LoyaltyCard { Id = c.Id, Name = c.Name });
-      return cards;
-    }
 
     public void Rollback()
     {
-      throw new NotImplementedException();
+      if (this.msrDb.Database.CurrentTransaction != null)
+      {
+        this.msrDb.Database.RollbackTransaction();
+      }
     }
 
     public void Save()
     {
-      throw new NotImplementedException();
+      this.msrDb.SaveChanges();
+    }
+
+
+    public IEnumerable<LoyaltyCard> GetAllCards()
+    {
+      var cards = this.msrDb.LoyaltyCards.Select(c => new LoyaltyCard { Id = c.Id, Name = c.Name, Image = c.Image });
+      return cards;
+    }
+
+    public void CreateLoyaltyCard(LoyaltyCard card)
+    {
+      var dbCard = new LoyaltyCardModel { Name = card.Name, Image = card.Image };
+      this.msrDb.LoyaltyCards.Add(dbCard);
+
+      card.Id = dbCard.Id;
     }
   }
 }

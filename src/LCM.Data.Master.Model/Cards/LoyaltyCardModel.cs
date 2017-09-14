@@ -4,8 +4,9 @@ using System.Text;
 
 namespace LCM.Data.Master.Model
 {
-    public class LoyaltyCardModel : BaseModel
-    {
-        public string Name { get; set; }
-    }
+  public class LoyaltyCardModel : BaseModel
+  {
+    public string Name { get; set; }
+    public byte[] Image { get; set; }
+  }
 }

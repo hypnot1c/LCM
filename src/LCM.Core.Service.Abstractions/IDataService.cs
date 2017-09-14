@@ -6,5 +6,6 @@ namespace LCM.Core.Service.Abstractions
   public interface IDataService
   {
     IEnumerable<LoyaltyCard> GetAllCards();
+    void CreateLoyaltyCard(LoyaltyCard card);
   }
 }

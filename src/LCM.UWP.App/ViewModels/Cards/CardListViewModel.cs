@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using LCM.Core.Service;
+using Windows.Devices.Enumeration;
+using Windows.Media.Capture;
+using Windows.Graphics.Display;
 
 namespace LCM.UWP.App.ViewModels.Cards
 {
@@ -29,6 +32,11 @@ namespace LCM.UWP.App.ViewModels.Cards
     protected override void OnDeactivate(bool close)
     {
       _evAggregator.Unsubscribe(this);
+    }
+
+    public void LoyaltyCardAdd()
+    {
+      this._navService.For<CardCreateViewModel>().Navigate();
     }
   }
 }

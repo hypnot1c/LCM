@@ -63,6 +63,7 @@ namespace LCM.UWP.App
       container.Singleton<LCMUnitOfWork>();
       container.PerRequest<ShellViewModel>();
       container.PerRequest<CardListViewModel>();
+      container.PerRequest<CardCreateViewModel>();
     }
 
     protected override void PrepareViewFirst(Frame rootFrame)

@@ -1,9 +1,14 @@
 ﻿<cm:CaliburnApplication
     x:Class="LCM.UWP.App.App"
+    xmlns:cm="using:Caliburn.Micro"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LCM.UWP.App"
-    xmlns:cm="using:Caliburn.Micro"
+  xmlns:vc="using:LCM.UWP.App.Resources.Converters"
     RequestedTheme="Light">
-
+  <cm:CaliburnApplication.Resources>
+    <ResourceDictionary>
+      <vc:ByteArrayToBitmapImageConverter x:Key="baToBi" />
+    </ResourceDictionary>
+  </cm:CaliburnApplication.Resources>
 </cm:CaliburnApplication>

@@ -5,24 +5,36 @@
   xmlns:local="using:LCM.UWP.App.Views"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:cm="using:Caliburn.Micro"
   xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+  mc:Ignorable="d">
 
+  <VisualStateManager.VisualStateGroups>
+    
+  </VisualStateManager.VisualStateGroups>
   <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid.RowDefinitions>
       <RowDefinition Height="1*" />
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-    <controls:AdaptiveGridView Grid.Row="0" ItemsSource="{Binding LoyaltyCards}"
+    <controls:AdaptiveGridView Grid.Row="0" x:Name="MyItemsControl" ItemsSource="{Binding LoyaltyCards}"
       DesiredWidth="600"                         
       >
       <controls:AdaptiveGridView.ItemTemplate>
         <DataTemplate>
-          <Grid>
+          <Grid 
+            cm:Action.TargetWithoutContext="{Binding DataContext, ElementName=MyItemsControl}"
+            cm:Message.Attach="[Event RightTapped] = [OnCardContextMenu]">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="128" />
               <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
+            <FlyoutBase.AttachedFlyout>
+              <MenuFlyout>
+                <MenuFlyoutItem x:Name="EditButton" Text="Edit"/>
+                <MenuFlyoutItem x:Name="DeleteButton" Text="Delete"/>
+              </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
             <Image Grid.Column="0" Source="{Binding Image, Converter={StaticResource baToBi}}" HorizontalAlignment="Left" />
             <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" TextAlignment="Center" />
           </Grid>
@@ -32,6 +44,7 @@
     <CommandBar Grid.Row="1">
       <CommandBar.PrimaryCommands>
         <AppBarButton Name="LoyaltyCardAdd" Icon="Add" Label="Add card" />
+        <AppBarButton Name="Select" Icon="Bullets" Label="Select" Click="Select_Click" />
         <AppBarButton Icon="Find" Label="Filter" />
       </CommandBar.PrimaryCommands>
     </CommandBar>

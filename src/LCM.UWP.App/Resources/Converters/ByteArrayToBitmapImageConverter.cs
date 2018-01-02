@@ -25,7 +25,7 @@ namespace LCM.UWP.App.Resources.Converters
       }
 
       var image = new BitmapImage();
-      using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+      using (var stream = new InMemoryRandomAccessStream())
       {
         var r = stream.WriteAsync(arr.AsBuffer()).AsTask().Result;
         stream.Seek(0);

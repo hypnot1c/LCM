@@ -26,5 +26,12 @@ namespace LCM.UWP.App.Views.Cards
     {
       this.InitializeComponent();
     }
+
+
+
+    private void Select_Click(object sender, RoutedEventArgs e)
+    {
+      VisualStateManager.GoToState(this, "CardSelection", false);
+    }
   }
 }

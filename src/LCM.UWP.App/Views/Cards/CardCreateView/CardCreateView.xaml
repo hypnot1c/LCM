@@ -16,10 +16,8 @@
         <TextBlock Text="Name" />
         <TextBox Name="Name" />
         <Image Source="{Binding Image, Converter={StaticResource baToBi}}" />
-        <ContentControl HorizontalAlignment="Left"         
-                Width="320" Height="140" Content="{Binding CaptureElement}"/>
         <StackPanel Orientation="Horizontal">
-          
+
           <Button Name="SelectImage">Select image</Button>
           <Button Name="TakePicture">Take picture</Button>
         </StackPanel>

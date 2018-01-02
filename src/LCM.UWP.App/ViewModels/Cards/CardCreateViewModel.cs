@@ -16,6 +16,11 @@ using Windows.Media.Capture;
 using Windows.Graphics.Display;
 using System.Diagnostics;
 using Windows.UI.Xaml.Controls;
+using Windows.Foundation;
+using Windows.Graphics.Imaging;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace LCM.UWP.App.ViewModels.Cards
 {
@@ -65,6 +70,14 @@ namespace LCM.UWP.App.ViewModels.Cards
       set { _imageBitmap = value; base.NotifyOfPropertyChange(() => this.ImageBitmap); }
     }
 
+    public void OnCardContextMenu(object sender, RightTappedRoutedEventArgs e)
+    {
+      var senderElement = sender as FrameworkElement;
+      // If you need the clicked element:
+      // Item whichOne = senderElement.DataContext as Item;
+      var flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
+      flyoutBase.ShowAt(senderElement);
+    }
 
     public async void SelectImage()
     {
@@ -86,11 +99,6 @@ namespace LCM.UWP.App.ViewModels.Cards
           var r = readStream.ReadAsync(byteArray, 0, byteArray.Length).Result;
           this.Image = byteArray;
         }
-        //this.ImageBitmap = new BitmapImage();
-        //this.ImageBitmap.SetSource(stream);
-        
-        // Application now has read/write access to the picked file
-        //OutputTextBlock.Text = "Picked photo: " + file.Name;
       }
       else
       {
@@ -98,100 +106,27 @@ namespace LCM.UWP.App.ViewModels.Cards
       }
     }
 
-    private CaptureElement captureElement;
-
-    public CaptureElement CaptureElement
-    {
-      get { return captureElement; }
-      set { captureElement = value; base.NotifyOfPropertyChange(() => this.CaptureElement); }
-    }
-
-    private MediaCapture mediaCapture;
-
-    public MediaCapture MediaCapture
-    {
-      get { return mediaCapture; }
-      set { mediaCapture = value; base.NotifyOfPropertyChange(() => this.MediaCapture); }
-    }
-
     public async Task TakePicture()
     {
-      this.CaptureElement = new CaptureElement();
-      var cameraDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+      var captureUI = new CameraCaptureUI();
+      captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+      captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
 
-      var backFacingDevice = cameraDevices
-                    .FirstOrDefault(c => c.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Back);
+      var photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
 
-      var preferredDevice = backFacingDevice ?? cameraDevices.FirstOrDefault();
-
-      // Create MediaCapture
-      this.MediaCapture = new MediaCapture();
-
-      // Stop the screen from timing out.
-      //_displayRequest.RequestActive();
-
-      // Initialize MediaCapture and settings
-      try
+      if (photo == null)
       {
-        await this.MediaCapture.InitializeAsync(new MediaCaptureInitializationSettings
-        {
-          VideoDeviceId = preferredDevice.Id
-        });
-
-        this.CaptureElement.Source = this.MediaCapture;
-
-        await MediaCapture.StartPreviewAsync();
-
-        await SetPreviewRotationPropertiesAsync();
-      }
-      catch (Exception ex)
-      {
-        Debug.WriteLine("The app was denied access to the camera");
+        // User cancelled photo capture
+        return;
       }
 
-      // Set the preview source for the CaptureElement
-      //PreviewControl.Source = _mediaCapture;
-
-      // Start viewing through the CaptureElement 
-
-      // Set rotation properties to ensure the screen is filled with the preview.
-
-    }
-
-    private static readonly Guid RotationKey = new Guid("C380465D-2271-428C-9B83-ECEA3B4A85C1");
-
-    private async Task SetPreviewRotationPropertiesAsync()
-    {
-      // Only need to update the orientation if the camera is mounted on the device
-      // if (_externalCamera) return;
-
-      // Calculate which way and how far to rotate the preview
-      int rotation = ConvertDisplayOrientationToDegrees(DisplayInformation.GetForCurrentView().CurrentOrientation);
-
-      // Get the property meta data about the video.
-      var props = MediaCapture.VideoDeviceController.GetMediaStreamProperties(MediaStreamType.VideoPreview);
-
-      // Change the meta data to rotate the preview to fill the screen with the preview.
-      props.Properties.Add(RotationKey, rotation);
-
-      // Now set the updated meta data into the video preview.
-      await MediaCapture.SetEncodingPropertiesAsync(MediaStreamType.VideoPreview, props, null);
-    }
-
-    private static int ConvertDisplayOrientationToDegrees(DisplayOrientations orientation)
-    {
-      switch (orientation)
-      {
-        case DisplayOrientations.Portrait:
-          return 90;
-        case DisplayOrientations.LandscapeFlipped:
-          return 180;
-        case DisplayOrientations.PortraitFlipped:
-          return 270;
-        case DisplayOrientations.Landscape:
-        default:
-          return 0;
-      }
+      var stream = await photo.OpenAsync(FileAccessMode.Read);
+      var readStream = stream.AsStreamForRead();
+      var byteArray = new byte[readStream.Length];
+      var r = readStream.ReadAsync(byteArray, 0, byteArray.Length).Result;
+      this.Image = byteArray;
+      //var decoder = await BitmapDecoder.CreateAsync(stream);
+      //var softwareBitmap = await decoder.GetSoftwareBitmapAsync();
     }
   }
 }
